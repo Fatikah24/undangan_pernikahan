@@ -39,7 +39,7 @@
       min-height: 100vh;
       position: relative;
       box-shadow: 0 0 50px rgba(0,0,0,0.7);
-      overflow: hidden;
+      overflow-x: hidden;
     }
 
     @media (min-width: 481px) {
@@ -48,6 +48,7 @@
         max-height: 900px;
         border-radius: 24px;
         border: 4px solid rgba(255, 255, 255, 0.2);
+        overflow-y: auto;
       }
     }
 
@@ -66,12 +67,15 @@
     .ornament-bl { bottom: -40px; left: -40px; }
     .ornament-br { bottom: -40px; right: -40px; }
 
-    /* COVER DEPAN */
+    /* COVER DEPAN (FIXED SUPAYA PAS DI LAYAR HP) */
     #cover {
-      position: absolute;
-      top: 0; left: 0;
+      position: fixed;
+      top: 0; 
+      left: 50%;
+      transform: translateX(-50%);
       width: 100%;
-      height: 100%;
+      max-width: 480px;
+      height: 100vh;
       background: linear-gradient(145deg, #78477d 0%, #432247 60%, #2a112c 100%);
       color: #ffffff;
       display: flex;
@@ -79,7 +83,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 25px;
+      padding: 20px;
       z-index: 999;
       transition: transform 0.8s ease-in-out;
       overflow: hidden;
@@ -99,11 +103,11 @@
       z-index: 2;
     }
 
-    /* FOTO DIPERBESAR */
+    /* FOTO COVER */
     .arch-frame {
-      width: 200px;
-      height: 270px;
-      border-radius: 100px 100px 0 0;
+      width: 180px;
+      height: 240px;
+      border-radius: 90px 90px 0 0;
       border: 3px solid #f2e3f5;
       overflow: hidden;
       margin-bottom: 10px;
@@ -121,7 +125,7 @@
 
     .subtitle { font-size: 0.78rem; color: #f2e3f5; text-transform: uppercase; letter-spacing: 2px; z-index: 2; }
     
-    /* NAMA PASANGAN DIPERKECIL */
+    /* NAMA PASANGAN */
     h1.couple-name { 
       font-family: 'Great Vibes', cursive; 
       font-size: 2.8rem; 
@@ -190,8 +194,6 @@
       background: linear-gradient(180deg, #f9f2fb 0%, #f1e3f5 100%);
       min-height: 100vh;
       position: relative;
-      overflow-y: auto;
-      height: 100%;
     }
 
     .section-styled {
@@ -460,7 +462,7 @@
 
         <div class="guest-section">
           <span class="guest-label">Kepada Yth. Bapak/Ibu/Saudara/i :</span>
-          <div class="guest-name" id="namaTamu">Farhan & Abel</div>
+          <div class="guest-name" id="namaTamu">Fitri & DO bok obok</div>
         </div>
 
         <p style="font-size: 0.7rem; color: #f2e3f5; max-width: 280px; margin-bottom: 10px; line-height: 1.3;">
@@ -692,7 +694,7 @@
       e.preventDefault();
 
       const namaVal = document.getElementById('inputNama').value;
-      const kehadiranVal = document.getElementById('inputKehadiran').value;
+      const kehadiranVal = document.getElementById('inputKehadiran'.value);
       const pesanVal = document.getElementById('inputPesan').value;
 
       const badgeClass = kehadiranVal === 'Hadir' ? 'hadir' : 'tidak-hadir';
