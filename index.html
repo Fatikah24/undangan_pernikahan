@@ -22,14 +22,14 @@
     .app-container {
       max-width: 480px;
       margin: 0 auto;
-      background: #8e6893;
+      background: linear-gradient(135deg, #7a5080 0%, #4a284e 50%, #321935 100%);
       min-height: 100vh;
       position: relative;
       box-shadow: 0 0 40px rgba(0,0,0,0.5);
       overflow: hidden;
     }
 
-    /* 1. COVER DEPAN DENGAN DESAIN BUNGA VINTAGE KOREA FULL */
+    /* 1. COVER DEPAN VINTAGE KOREA FLORAL PATTERN CSS */
     #cover {
       position: fixed;
       top: 0; left: 50%;
@@ -37,7 +37,7 @@
       width: 100%;
       max-width: 480px;
       height: 100vh;
-      background: linear-gradient(180deg, #784c7d 0%, #4a284e 100%);
+      background: linear-gradient(145deg, #78477d 0%, #432247 60%, #2a112c 100%);
       color: #ffffff;
       display: flex;
       flex-direction: column;
@@ -50,50 +50,31 @@
       overflow: hidden;
     }
 
-    /* Bunga-bunga Vintage Korea di Sisi Kiri & Kanan */
-    .floral-side-left {
+    /* Efek Motif Bunga Estetik Korea di Sudut Menggunakan CSS Shapes & Glow */
+    .floral-ornament {
       position: absolute;
-      top: -20px;
-      left: -30px;
-      width: 220px;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(230, 190, 235, 0.35) 0%, rgba(120, 71, 125, 0) 70%);
       pointer-events: none;
       z-index: 1;
-      opacity: 0.9;
     }
-
-    .floral-side-right {
-      position: absolute;
-      top: -20px;
-      right: -30px;
-      width: 220px;
-      pointer-events: none;
-      z-index: 1;
-      opacity: 0.9;
-      transform: scaleX(-1);
-    }
-
-    .floral-bottom {
-      position: absolute;
-      bottom: -40px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 110%;
-      max-width: 520px;
-      pointer-events: none;
-      z-index: 1;
-      opacity: 0.95;
-    }
+    .ornament-tl { top: -30px; left: -30px; }
+    .ornament-tr { top: -30px; right: -30px; }
+    .ornament-bl { bottom: -30px; left: -30px; }
+    .ornament-br { bottom: -30px; right: -30px; }
 
     .theme-badge {
       font-family: 'Cinzel', serif;
       font-size: 0.75rem;
       letter-spacing: 4px;
-      background: rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.2);
       backdrop-filter: blur(6px);
       padding: 6px 22px;
       border-radius: 20px;
       margin-bottom: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.4);
       box-shadow: 0 4px 10px rgba(0,0,0,0.15);
       z-index: 2;
     }
@@ -124,11 +105,11 @@
 
     .guest-section { 
       margin: 12px 0 18px; 
-      background: rgba(255, 255, 255, 0.22); 
+      background: rgba(255, 255, 255, 0.18); 
       backdrop-filter: blur(8px);
       padding: 12px 20px; 
       border-radius: 15px; 
-      border: 1px solid rgba(255,255,255,0.35);
+      border: 1px solid rgba(255,255,255,0.3);
       width: 100%; 
       z-index: 2;
     }
@@ -154,7 +135,7 @@
 
     .btn-open:hover { background-color: #f2e3f5; transform: translateY(-2px); }
 
-    /* 2. ISI UTAMA UNDANGAN DEKORATIF */
+    /* 2. ISI UTAMA UNDANGAN */
     #main-content { 
       text-align: center;
       background: rgba(253, 248, 254, 0.96);
@@ -265,7 +246,7 @@
     .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 15px; }
     .gallery-grid img { width: 100%; height: 135px; object-fit: cover; border-radius: 14px; border: 2px solid #d8bfdd; box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
 
-    /* UCAPAN BANNER DESAIN GAMBAR ACUAN */
+    /* UCAPAN BANNER */
     .ucapan-banner {
       background: #3f2a45;
       color: #ffffff;
@@ -399,10 +380,11 @@
 
     <!-- COVER SAMPUL DEPAN VINTAGE KOREA FLORAL -->
     <div id="cover">
-      <!-- Aksen Ornamen Bunga Ungu Vintage Korea Sisi Atas & Bawah -->
-      <img src="https://assets.stickpng.com/images/580b585b2edbce24c47b26c6.png" class="floral-side-left" alt="Bunga Ungu Kiri">
-      <img src="https://assets.stickpng.com/images/580b585b2edbce24c47b26c6.png" class="floral-side-right" alt="Bunga Ungu Kanan">
-      <img src="https://png.pngtree.com/png-vector/20220926/ourmid/pngtree-purple-floral-border-vintage-wedding-invitation-frame-png-image_6218173.png" class="floral-bottom" alt="Bunga Ungu Bawah">
+      <!-- Ornamen Bunga Ungu Estetik di Sudut (100% Anti Gagal/Pasti Muncul) -->
+      <div class="floral-ornament ornament-tl"></div>
+      <div class="floral-ornament ornament-tr"></div>
+      <div class="floral-ornament ornament-bl"></div>
+      <div class="floral-ornament ornament-br"></div>
 
       <div class="theme-badge">VINTAGE KOREA</div>
 
