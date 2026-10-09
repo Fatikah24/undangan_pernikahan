@@ -156,7 +156,7 @@
     }
     .btn-cover-music:hover { background: rgba(255, 255, 255, 0.4); }
 
-    /* ISI UTAMA UNDANGAN - BACKGROUND DENGAN MOTIF BUNGA & GRADASI UNGU ELEGAN */
+    /* ISI UTAMA UNDANGAN */
     #main-content { 
       text-align: center;
       background: linear-gradient(135deg, #4d2b54 0%, #36173a 50%, #251028 100%);
@@ -635,7 +635,7 @@
       document.getElementById('inputNama').value = decodeURIComponent(nama);
     }
 
-    // 2. FUNGSI BUKA UNDANGAN & MUSIK (Mulai dari 01:05 = 65 Detik)
+    // 2. FUNGSI BUKA UNDANGAN & MUSIK (Mulai dari detik ke-5 untuk tes suara)
     const music = document.getElementById("bgMusic");
     let isPlaying = false;
 
@@ -644,13 +644,15 @@
       cover.style.transform = "translateY(-100%)";
       setTimeout(() => { cover.style.display = "none"; }, 800);
       
-      // Mengatur lagu mulai dari menit ke 01:05 (65 detik)
-      music.currentTime = 65; 
+      // Mengatur lagu mulai dari detik ke-5 (bisa diubah nanti ke 65 jika durasi lagu panjang)
+      music.currentTime = 5; 
       
-      music.play();
-      isPlaying = true;
-      document.getElementById("musicIcon").className = "fas fa-music";
-      document.getElementById("musicIconCover").className = "fas fa-music";
+      music.play().then(() => {
+        isPlaying = true;
+        document.getElementById("musicIcon").className = "fas fa-music";
+      }).catch(error => {
+        console.log("Autoplay diblokir browser:", error);
+      });
     }
 
     function toggleMusic() {
