@@ -22,14 +22,14 @@
     .app-container {
       max-width: 480px;
       margin: 0 auto;
-      background: #7d5982 url('https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=600&q=80') center/cover repeat-y;
+      background: #8e6893;
       min-height: 100vh;
       position: relative;
       box-shadow: 0 0 40px rgba(0,0,0,0.5);
       overflow: hidden;
     }
 
-    /* 1. COVER DEPAN VINTAGE KOREA FLORAL AESTHETIC */
+    /* 1. COVER DEPAN DENGAN ORNAMEN BUNGA UNGU */
     #cover {
       position: fixed;
       top: 0; left: 50%;
@@ -37,8 +37,7 @@
       width: 100%;
       max-width: 480px;
       height: 100vh;
-      background: linear-gradient(135deg, rgba(125, 89, 130, 0.92), rgba(74, 43, 78, 0.95)), 
-                  url('https://images.unsplash.com/photo-1518895949257-7621c3c786d7?auto=format&fit=crop&w=600&q=80') center/cover;
+      background: linear-gradient(180deg, #714a76 0%, #4a284e 100%);
       color: #ffffff;
       display: flex;
       flex-direction: column;
@@ -48,16 +47,52 @@
       padding: 25px;
       z-index: 999;
       transition: transform 0.8s ease-in-out;
+      overflow: hidden;
     }
 
-    /* ORNAMEN DEKORASI BUNGKUS KOREA */
-    #cover::before {
-      content: "";
+    /* HIASAN BUNGA POJOK ATAS KIRI & KANAN */
+    .flower-top-left {
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: url('https://www.transparenttextures.com/patterns/floral-paper.png');
-      opacity: 0.25;
+      top: -10px;
+      left: -10px;
+      width: 140px;
+      opacity: 0.85;
       pointer-events: none;
+      transform: rotate(0deg);
+      z-index: 1;
+    }
+
+    .flower-top-right {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      width: 140px;
+      opacity: 0.85;
+      pointer-events: none;
+      transform: scaleX(-1);
+      z-index: 1;
+    }
+
+    /* HIASAN BUNGA POJOK BAWAH KIRI & KANAN */
+    .flower-bottom-left {
+      position: absolute;
+      bottom: -10px;
+      left: -10px;
+      width: 150px;
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .flower-bottom-right {
+      position: absolute;
+      bottom: -10px;
+      right: -10px;
+      width: 150px;
+      opacity: 0.9;
+      pointer-events: none;
+      transform: scaleX(-1);
+      z-index: 1;
     }
 
     .theme-badge {
@@ -133,9 +168,9 @@
     /* 2. ISI UTAMA UNDANGAN DEKORATIF */
     #main-content { 
       text-align: center;
-      background: rgba(253, 248, 254, 0.92);
-      backdrop-filter: blur(5px);
+      background: rgba(253, 248, 254, 0.95);
       min-height: 100vh;
+      position: relative;
     }
 
     .section-padding { padding: 40px 20px; }
@@ -377,6 +412,12 @@
 
     <!-- COVER SAMPUL DEPAN VINTAGE KOREA FLORAL -->
     <div id="cover">
+      <!-- ORNAMEN BUNGA UNGU TRANSPARAN DI KAMPUS ATAU CORNER -->
+      <img src="https://cdnt.svgrepo.com/show/368536/flower-vintage.svg" class="flower-top-left" alt="Bunga">
+      <img src="https://cdnt.svgrepo.com/show/368536/flower-vintage.svg" class="flower-top-right" alt="Bunga">
+      <img src="https://cdnt.svgrepo.com/show/368536/flower-vintage.svg" class="flower-bottom-left" alt="Bunga">
+      <img src="https://cdnt.svgrepo.com/show/368536/flower-vintage.svg" class="flower-bottom-right" alt="Bunga">
+
       <div class="theme-badge">VINTAGE KOREA</div>
 
       <div class="arch-frame">
