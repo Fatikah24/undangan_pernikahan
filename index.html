@@ -14,7 +14,7 @@
     
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #3f2a45; /* Background gelap luar untuk PC */
+      background-color: #3f2a45;
       color: #3a2b3c;
       overflow-x: hidden;
     }
@@ -22,14 +22,14 @@
     .app-container {
       max-width: 480px;
       margin: 0 auto;
-      background: #f4ecf7; /* Muted Purple Soft Theme */
+      background: #f4ecf7;
       min-height: 100vh;
       position: relative;
       box-shadow: 0 0 35px rgba(0,0,0,0.4);
       overflow: hidden;
     }
 
-    /* COVER DEPAN (VINTAGE KOREA STYLE) */
+    /* 1. COVER DEPAN (VINTAGE KOREA STYLE) */
     #cover {
       position: fixed;
       top: 0; left: 50%;
@@ -103,15 +103,24 @@
 
     .btn-open:hover { background-color: #f2e3f5; transform: translateY(-2px); }
 
-    /* ISI UNDANGAN */
+    /* 2. ISI UTAMA UNDANGAN */
     #main-content { text-align: center; padding-top: 30px; }
 
-    /* COUNTDOWN TIMER PURPLE STYLE */
+    .section-padding { padding: 40px 20px; }
+
+    /* SLIDE SALAM & PROFIL MEMPALAI */
+    .salam-title { font-weight: 600; font-size: 1.2rem; color: #5c3961; margin-bottom: 12px; }
+    .salam-text { font-size: 0.88rem; line-height: 1.7; color: #555; max-width: 380px; margin: 0 auto 30px; }
+
+    .mempelai-card { margin-bottom: 35px; }
+    .mempelai-name { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #5c3961; margin: 10px 0 5px; }
+    .mempelai-parents { font-size: 0.82rem; color: #666; line-height: 1.5; }
+
+    /* COUNTDOWN TIMER PURPLE */
     .countdown-section {
       background: #734f78;
       color: #ffffff;
       padding: 35px 15px 50px;
-      margin-top: 25px;
     }
 
     .timer-grid { display: flex; justify-content: center; gap: 10px; margin-top: 15px; }
@@ -134,13 +143,58 @@
     .quote-text { font-size: 0.85rem; line-height: 1.7; font-weight: 300; margin-bottom: 12px; opacity: 0.95; }
     .quote-source { font-size: 0.85rem; font-weight: 500; color: #e1cbe6; }
 
+    /* SLIDE DETAIL ACARA */
+    .event-card {
+      background: #ffffff;
+      border: 1px solid #d8bfdd;
+      border-radius: 15px;
+      padding: 25px 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .event-title { font-family: 'Cinzel', serif; font-size: 1.2rem; color: #5c3961; margin-bottom: 10px; }
+    .event-info { font-size: 0.88rem; color: #555; margin-bottom: 6px; }
+
+    .btn-map {
+      display: inline-block;
+      margin-top: 15px;
+      background: #5c3961;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* SLIDE WEDDING GIFT */
+    .gift-section { background: #fdfafc; padding: 40px 20px; }
+    .gift-card {
+      background: #ffffff;
+      border: 1px dashed #734f78;
+      border-radius: 12px;
+      padding: 20px;
+      margin-top: 15px;
+    }
+    .rekening-no { font-size: 1.1rem; font-weight: 600; color: #5c3961; margin: 8px 0; letter-spacing: 1px; }
+    .btn-copy {
+      background: #734f78;
+      color: white;
+      border: none;
+      padding: 6px 15px;
+      border-radius: 15px;
+      font-size: 0.78rem;
+      cursor: pointer;
+    }
+
     /* GALERI FOTO */
     .gallery-section { padding: 30px 20px; }
     .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 15px; }
     .gallery-grid img { width: 100%; height: 130px; object-fit: cover; border-radius: 12px; border: 2px solid #d8bfdd; }
 
-    /* FORM RSVP DI PALING AKHIR */
-    .rsvp-section { background: #ffffff; padding: 30px 20px 50px; text-align: left; }
+    /* FORM RSVP DI PALING AKHIR SLIDE */
+    .rsvp-section { background: #ffffff; padding: 40px 20px 60px; text-align: left; }
     .rsvp-section h3 { text-align: center; color: #5c3961; margin-bottom: 15px; }
     .rsvp-section input, .rsvp-section select, .rsvp-section textarea {
       width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #d8bfdd; border-radius: 8px; font-family: inherit;
@@ -164,7 +218,7 @@
 </head>
 <body>
 
-  <!-- LAGU DENNY CAKNAN - SINARENGAN (Audio Stream) -->
+  <!-- AUDIO BACKSOUND: DENNY CAKNAN - SINARENGAN -->
   <audio id="bgMusic" loop src="https://files.catbox.moe/s92qsp.mp3"></audio>
 
   <div class="music-btn" onclick="toggleMusic()">
@@ -173,7 +227,7 @@
 
   <div class="app-container">
 
-    <!-- COVER DEPAN VINTAGE KOREA -->
+    <!-- 1. COVER SAMPUL DEPAN (SAMPUL UTAMA) -->
     <div id="cover">
       <div class="theme-badge">VINTAGE KOREA</div>
 
@@ -199,13 +253,35 @@
       </button>
     </div>
 
-    <!-- ISI UTAMA UNDANGAN -->
+    <!-- 2. ISI UTAMA UNDANGAN -->
     <div id="main-content">
-      <p class="subtitle" style="color: #734f78;">You Are Invited To The Wedding Of</p>
-      <h1 class="couple-name" style="color: #5c3961;">Fatikah & Chanyeol</h1>
 
-      <div class="arch-frame" style="margin: 20px auto; border-color: #734f78;">
-        <img src="https://picsum.photos/300/400?wedding" alt="Fatikah & Chanyeol">
+      <!-- SLIDE 1: KALIMAT PEMBUKA & PROFIL MEMPELAI -->
+      <div class="section-padding">
+        <h3 class="salam-title">Assalamu’alaikum Wr. Wb.</h3>
+        <p class="salam-text">
+          Maha suci Allah SWT, yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah, rahmati dan ridhoilah pernikahan kami :
+        </p>
+
+        <!-- PROFIL ISTRI (FATIKAH) -->
+        <div class="mempelai-card">
+          <div class="arch-frame" style="margin: 0 auto 15px; border-color: #734f78;">
+            <img src="https://picsum.photos/300/400?bride" alt="Fatikah">
+          </div>
+          <h2 class="mempelai-name">Fatikah Abqoriyyah</h2>
+          <p class="mempelai-parents">Putri dari Bapak Nama Ayah <br> & Ibu Nama Ibu</p>
+        </div>
+
+        <div style="font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #734f78; margin: 20px 0;">&</div>
+
+        <!-- PROFIL SUAMI (CHANYEOL) -->
+        <div class="mempelai-card">
+          <div class="arch-frame" style="margin: 0 auto 15px; border-color: #734f78;">
+            <img src="https://picsum.photos/300/400?groom" alt="Chanyeol">
+          </div>
+          <h2 class="mempelai-name">Park Chanyeol</h2>
+          <p class="mempelai-parents">Putra dari Bapak Nama Ayah <br> & Ibu Nama Ibu</p>
+        </div>
       </div>
 
       <!-- COUNTDOWN TIMER -->
@@ -233,6 +309,51 @@
         <div class="quote-source">(QS. Ar-Rum : 21)</div>
       </div>
 
+      <!-- SLIDE 2: DETAIL ACARA (AKAD & RESEPSI) -->
+      <div class="section-padding">
+        <h3 style="color: #5c3961; margin-bottom: 25px;">Rangkaian Acara</h3>
+
+        <!-- AKAD NIKAH -->
+        <div class="event-card">
+          <div class="event-title">AKAD NIKAH</div>
+          <div class="event-info"><i class="far fa-calendar-alt"></i> Sabtu, 13 Juni 2026</div>
+          <div class="event-info"><i class="far fa-clock"></i> 08.00 WIB - Selesai</div>
+          <div class="event-info"><i class="fas fa-map-marker-alt"></i> Gedung Pernikahan Utama, Jakarta</div>
+          <a href="https://maps.google.com" target="_blank" class="btn-map"><i class="fas fa-location-arrow"></i> Petunjuk Lokasi</a>
+        </div>
+
+        <!-- RESEPSI -->
+        <div class="event-card">
+          <div class="event-title">RESEPSI</div>
+          <div class="event-info"><i class="far fa-calendar-alt"></i> Sabtu, 13 Juni 2026</div>
+          <div class="event-info"><i class="far fa-clock"></i> 11.00 WIB - Selesai</div>
+          <div class="event-info"><i class="fas fa-map-marker-alt"></i> Gedung Pernikahan Utama, Jakarta</div>
+          <a href="https://maps.google.com" target="_blank" class="btn-map"><i class="fas fa-location-arrow"></i> Petunjuk Lokasi</a>
+        </div>
+      </div>
+
+      <!-- SLIDE 3: WEDDING GIFT (NO REK) -->
+      <div class="gift-section">
+        <h3 style="color: #5c3961;">Wedding Gift</h3>
+        <p style="font-size: 0.85rem; color: #666; margin-top: 5px;">Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Dan jika Anda ingin memberikan hadiah, dapat melalui rekening di bawah ini:</p>
+
+        <!-- REK ISTRI -->
+        <div class="gift-card">
+          <p style="font-size: 0.85rem; color: #777;">Bank BCA (Istri)</p>
+          <div class="rekening-no" id="rekIstri">1234567890</div>
+          <p style="font-size: 0.8rem; color: #555;">a.n Fatikah Abqoriyyah</p>
+          <button class="btn-copy" onclick="copyText('rekIstri')">Salin No. Rekening</button>
+        </div>
+
+        <!-- REK SUAMI -->
+        <div class="gift-card">
+          <p style="font-size: 0.85rem; color: #777;">Bank Mandiri (Suami)</p>
+          <div class="rekening-no" id="rekSuami">0987654321</div>
+          <p style="font-size: 0.8rem; color: #555;">a.n Park Chanyeol</p>
+          <button class="btn-copy" onclick="copyText('rekSuami')">Salin No. Rekening</button>
+        </div>
+      </div>
+
       <!-- GALERI FOTO -->
       <div class="gallery-section">
         <h3 style="color: #5c3961;">Momen Bahagia</h3>
@@ -244,9 +365,9 @@
         </div>
       </div>
 
-      <!-- KONFIRMASI KEHADIRAN (RSVP) DI AKHIR HALAMAN -->
+      <!-- SLIDE AKHIR: FORM RSVP & UCAPAN DOA -->
       <div class="rsvp-section">
-        <h3>Konfirmasi Kehadiran</h3>
+        <h3>Konfirmasi Kehadiran & Ucapan</h3>
         <form id="rsvpForm">
           <input type="text" name="nama" placeholder="Nama Lengkap" required>
           <select name="kehadiran" required>
@@ -255,8 +376,8 @@
             <option value="Tidak Hadir">Tidak Hadir</option>
           </select>
           <input type="number" name="jumlah" placeholder="Jumlah Tamu" min="1" required>
-          <textarea name="pesan" placeholder="Ucapan & Doa" rows="3"></textarea>
-          <button type="submit">Kirim Konfirmasi</button>
+          <textarea name="pesan" placeholder="Kata Ucapan & Doa" rows="3" required></textarea>
+          <button type="submit">Kirim Ucapan & RSVP</button>
         </form>
       </div>
 
@@ -297,7 +418,7 @@
     }
 
     // 3. COUNTDOWN TIMER
-    const targetDate = new Date("2026-06-13T09:00:00").getTime();
+    const targetDate = new Date("2026-06-13T08:00:00").getTime();
     setInterval(() => {
       const now = new Date().getTime();
       const distance = targetDate - now;
@@ -308,6 +429,13 @@
       document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
     }, 1000);
+
+    // 4. FUNGSI SALIN NO REKENING
+    function copyText(elementId) {
+      const text = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(text);
+      alert("Nomor rekening berhasil disalin: " + text);
+    }
   </script>
 </body>
 </html>
