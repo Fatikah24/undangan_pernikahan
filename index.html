@@ -223,55 +223,115 @@
     .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 15px; }
     .gallery-grid img { width: 100%; height: 135px; object-fit: cover; border-radius: 14px; border: 2px solid #d8bfdd; box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
 
-    /* FORM UCAPAN & DOA (HASIL LANGSUNG TAMPIL) */
-    .ucapan-section { background: #ffffff; padding: 40px 20px 60px; text-align: left; }
-    .ucapan-section h3 { text-align: center; color: #5c3961; margin-bottom: 20px; }
-    .ucapan-section input, .ucapan-section select, .ucapan-section textarea {
-      width: 100%; padding: 11px; margin-bottom: 12px; border: 1px solid #d8bfdd; border-radius: 10px; font-family: inherit; background: #faf7fc;
-    }
-    .ucapan-section button {
-      width: 100%; padding: 13px; background: #5c3961; color: white; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    /* SECTION UCAPAN DENGAN BANNER DESAIN GAMBAR ACUAN */
+    .ucapan-banner {
+      background: #1a2340;
+      color: #ffffff;
+      padding: 15px 20px;
+      border-radius: 12px 12px 0 0;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-align: center;
+      margin-top: 30px;
     }
 
-    /* DAFTAR KOTA UCAPAN YANG LANGSUNG MUNCUL */
+    .ucapan-box-container {
+      background: #eef2f8;
+      padding: 20px;
+      border-radius: 0 0 12px 12px;
+      text-align: left;
+    }
+
+    .comments-header {
+      color: #2b3a55;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .ucapan-box-container input, 
+    .ucapan-box-container select, 
+    .ucapan-box-container textarea {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+      border: 1px solid #d0d7de;
+      border-radius: 6px;
+      font-family: inherit;
+      font-size: 0.85rem;
+      background: #ffffff;
+    }
+
+    .btn-kirim-ucapan {
+      background: #2b4580;
+      color: #ffffff;
+      border: none;
+      padding: 8px 24px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 20px;
+      transition: background 0.3s;
+    }
+
+    .btn-kirim-ucapan:hover {
+      background: #1a2d58;
+    }
+
+    /* DAFTAR UCAPAN YANG DITAMPILKAN */
     .ucapan-list {
-      margin-top: 25px;
-      max-height: 280px;
+      border-top: 1px solid #d0d7de;
+      padding-top: 15px;
+      max-height: 320px;
       overflow-y: auto;
-      padding-right: 5px;
     }
 
-    .ucapan-card {
-      background: #fbf6fb;
-      border-left: 4px solid #5c3961;
+    .ucapan-item {
+      background: #ffffff;
       padding: 12px 15px;
       border-radius: 8px;
-      margin-bottom: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+      margin-bottom: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.03);
     }
 
-    .ucapan-card-name {
-      font-weight: 600;
-      color: #5c3961;
-      font-size: 0.9rem;
+    .ucapan-item-header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
     }
 
-    .ucapan-card-status {
-      font-size: 0.7rem;
-      background: #e1cbe6;
-      color: #5c3961;
+    .ucapan-item-name {
+      font-weight: 600;
+      color: #2b3a55;
+      font-size: 0.88rem;
+    }
+
+    .badge-status {
+      font-size: 0.68rem;
       padding: 2px 8px;
-      border-radius: 10px;
+      border-radius: 4px;
+      font-weight: 600;
+      color: white;
     }
 
-    .ucapan-card-msg {
+    .badge-status.hadir { background: #28a745; }
+    .badge-status.tidak-hadir { background: #2b4580; }
+
+    .ucapan-item-time {
+      font-size: 0.7rem;
+      color: #888;
+      margin-bottom: 6px;
+    }
+
+    .ucapan-item-text {
       font-size: 0.82rem;
-      color: #555;
-      margin-top: 5px;
-      line-height: 1.4;
+      color: #444;
+      line-height: 1.5;
     }
 
     /* FLOATING MUSIC BUTTON */
@@ -445,28 +505,40 @@
         </div>
       </div>
 
-      <!-- SLIDE AKHIR: FORM KATA UCAPAN & DOA (LANGSUNG TAMPIL) -->
-      <div class="ucapan-section">
-        <h3>Kata Ucapan & Doa</h3>
-        <form id="formUcapan">
-          <input type="text" id="inputNama" placeholder="Nama Lengkap" required>
-          <select id="inputKehadiran" required>
-            <option value="">-- Konfirmasi Kehadiran --</option>
-            <option value="Hadir">Hadir</option>
-            <option value="Tidak Hadir">Tidak Hadir</option>
-          </select>
-          <textarea id="inputPesan" placeholder="Tuliskan ucapan & doa untuk kedua mempelai..." rows="3" required></textarea>
-          <button type="submit">Kirim Ucapan</button>
-        </form>
+      <!-- SLIDE AKHIR: FORM UCAPAN & DOA MODEL GAMBAR ACUAN -->
+      <div style="padding: 10px 20px 50px;">
+        <div class="ucapan-banner">
+          Berikan Ucapan Spesial Anda Disini :
+        </div>
+        <div class="ucapan-box-container">
+          <div class="comments-header">
+            <i class="fas fa-comment-dots"></i> <span id="totalComments">1</span> Comments
+          </div>
 
-        <!-- KOTAK UNTUK MENAMPILKAN HASIL UCAPAN SECARA LANGSUNG -->
-        <div class="ucapan-list" id="daftarUcapan">
-          <div class="ucapan-card">
-            <div class="ucapan-card-name">
-              <span>Budi & Keluarga</span>
-              <span class="ucapan-card-status">Hadir</span>
+          <form id="formUcapan">
+            <input type="text" id="inputNama" placeholder="Nama Lengkap" required>
+            <textarea id="inputPesan" placeholder="Tulis Ucapan & Doa" rows="3" required></textarea>
+            <select id="inputKehadiran" required>
+              <option value="">Konfirmasi Kehadiran</option>
+              <option value="Hadir">Hadir</option>
+              <option value="Tidak Hadir">Tidak Hadir</option>
+            </select>
+            <button type="submit" class="btn-kirim-ucapan">Kirim</button>
+          </form>
+
+          <!-- DAFTAR KOTA UCAPAN MUNCUL DI BAWAH -->
+          <div class="ucapan-list" id="daftarUcapan">
+            <div class="ucapan-item">
+              <div class="ucapan-item-header">
+                <span class="ucapan-item-name">Syahdu</span>
+                <span class="badge-status tidak-hadir">Tidak Hadir</span>
+              </div>
+              <div class="ucapan-item-time"><i class="far fa-clock"></i> Baru saja</div>
+              <div class="ucapan-item-text">
+                Fatikah & Chanyeol selamat menempuh hidup baru yaa 💕<br>
+                Semoga pernikahan kalian sakinah mawadah warohmah, amiin 😇
+              </div>
             </div>
-            <div class="ucapan-card-msg">Selamat ya Fatikah & Chanyeol! Semoga menjadi keluarga yang sakinah mawaddah warahmah, bahagia selalu!</div>
           </div>
         </div>
       </div>
@@ -528,7 +600,8 @@
       alert("Nomor rekening berhasil disalin: " + text);
     }
 
-    // 5. FITUR KIRIM UCAPAN (LANGSUNG MUNCUL DI UNDANGAN)
+    // 5. FITUR TAMBAH UCAPAN DENGAN HITUNGAN COMMENTS OTOMATIS
+    let countComments = 1;
     document.getElementById('formUcapan').addEventListener('submit', function(e) {
       e.preventDefault();
 
@@ -536,24 +609,26 @@
       const kehadiranVal = document.getElementById('inputKehadiran').value;
       const pesanVal = document.getElementById('inputPesan').value;
 
-      // Buat elemen ucapan baru
-      const newCard = document.createElement('div');
-      newCard.className = 'ucapan-card';
-      newCard.innerHTML = `
-        <div class="ucapan-card-name">
-          <span>${namaVal}</span>
-          <span class="ucapan-card-status">${kehadiranVal}</span>
+      const badgeClass = kehadiranVal === 'Hadir' ? 'hadir' : 'tidak-hadir';
+
+      const newUcapan = document.createElement('div');
+      newUcapan.className = 'ucapan-item';
+      newUcapan.innerHTML = `
+        <div class="ucapan-item-header">
+          <span class="ucapan-item-name">${namaVal}</span>
+          <span class="badge-status ${badgeClass}">${kehadiranVal}</span>
         </div>
-        <div class="ucapan-card-msg">${pesanVal}</div>
+        <div class="ucapan-item-time"><i class="far fa-clock"></i> Baru saja</div>
+        <div class="ucapan-item-text">${pesanVal}</div>
       `;
 
-      // Masukkan ke daftar ucapan paling atas
       const list = document.getElementById('daftarUcapan');
-      list.insertBefore(newCard, list.firstChild);
+      list.insertBefore(newUcapan, list.firstChild);
 
-      // Reset form
+      countComments++;
+      document.getElementById('totalComments').innerText = countComments;
+
       document.getElementById('inputPesan').value = '';
-      alert("Terima kasih! Ucapan Anda berhasil dipublikasikan di halaman ini.");
     });
   </script>
 </body>
