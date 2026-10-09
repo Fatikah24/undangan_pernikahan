@@ -14,7 +14,7 @@
     
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #2b172e;
+      background: radial-gradient(circle at center, #4b2851 0%, #221025 100%);
       color: #3a2b3c;
       overflow-x: hidden;
     }
@@ -25,11 +25,26 @@
       background: linear-gradient(135deg, #7a5080 0%, #4a284e 50%, #321935 100%);
       min-height: 100vh;
       position: relative;
-      box-shadow: 0 0 40px rgba(0,0,0,0.5);
+      box-shadow: 0 0 50px rgba(0,0,0,0.6);
       overflow: hidden;
     }
 
-    /* COVER DEPAN VINTAGE KOREA FLORAL PATTERN CSS */
+    /* ORNAMEN BUNGA & CAHAYA VINTAGE KOREA */
+    .floral-ornament {
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(230, 190, 235, 0.4) 0%, rgba(120, 71, 125, 0) 75%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    .ornament-tl { top: -40px; left: -40px; }
+    .ornament-tr { top: -40px; right: -40px; }
+    .ornament-bl { bottom: -40px; left: -40px; }
+    .ornament-br { bottom: -40px; right: -40px; }
+
+    /* COVER DEPAN */
     #cover {
       position: fixed;
       top: 0; left: 50%;
@@ -49,20 +64,6 @@
       transition: transform 0.8s ease-in-out;
       overflow: hidden;
     }
-
-    .floral-ornament {
-      position: absolute;
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(230, 190, 235, 0.35) 0%, rgba(120, 71, 125, 0) 70%);
-      pointer-events: none;
-      z-index: 1;
-    }
-    .ornament-tl { top: -30px; left: -30px; }
-    .ornament-tr { top: -30px; right: -30px; }
-    .ornament-bl { bottom: -30px; left: -30px; }
-    .ornament-br { bottom: -30px; right: -30px; }
 
     .theme-badge {
       font-family: 'Cinzel', serif;
@@ -115,11 +116,19 @@
     .guest-label { font-size: 0.82rem; color: #f9f0fb; }
     .guest-name { font-size: 1.3rem; font-weight: 600; color: #ffffff; margin-top: 3px; }
 
+    .action-cover-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 2;
+      margin-top: 5px;
+    }
+
     .btn-open {
       background-color: #ffffff;
       color: #5c3961;
       border: none;
-      padding: 12px 30px;
+      padding: 12px 26px;
       border-radius: 25px;
       font-size: 0.95rem;
       font-weight: 600;
@@ -129,25 +138,56 @@
       gap: 8px;
       box-shadow: 0 6px 18px rgba(0,0,0,0.3);
       transition: all 0.3s;
-      z-index: 2;
     }
 
     .btn-open:hover { background-color: #f2e3f5; transform: translateY(-2px); }
 
-    /* ISI UTAMA UNDANGAN */
+    .btn-cover-music {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(6px);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+      transition: all 0.3s;
+    }
+    .btn-cover-music:hover { background: rgba(255, 255, 255, 0.4); }
+
+    /* ISI UTAMA UNDANGAN DENGAN MOTIF BUNGA DI SETIAP SECTION */
     #main-content { 
       text-align: center;
-      background: rgba(253, 248, 254, 0.96);
+      background: linear-gradient(180deg, #f9f2fb 0%, #f1e3f5 100%);
       min-height: 100vh;
       position: relative;
     }
 
-    .section-padding { padding: 40px 20px; }
+    .section-styled {
+      padding: 45px 20px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 2px dashed rgba(115, 79, 120, 0.2);
+    }
+
+    /* Ornamen Bunga Sudut Halus untuk Section */
+    .section-styled::before, .section-styled::after {
+      content: '';
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(165, 110, 173, 0.18) 0%, rgba(255,255,255,0) 70%);
+      pointer-events: none;
+    }
+    .section-styled::before { top: -20px; left: -20px; }
+    .section-styled::after { bottom: -20px; right: -20px; }
 
     .salam-title { font-weight: 600; font-size: 1.25rem; color: #5c3961; margin-bottom: 12px; }
     .salam-text { font-size: 0.88rem; line-height: 1.7; color: #555; max-width: 380px; margin: 0 auto 30px; }
 
-    .mempelai-card { margin-bottom: 35px; }
+    .mempelai-card { margin-bottom: 35px; position: relative; z-index: 2; }
     .mempelai-name { font-family: 'Great Vibes', cursive; font-size: 2.6rem; color: #5c3961; margin: 10px 0 5px; }
     .mempelai-parents { font-size: 0.82rem; color: #666; line-height: 1.5; }
 
@@ -155,7 +195,8 @@
     .countdown-section {
       background: linear-gradient(135deg, #7d5982, #533458);
       color: #ffffff;
-      padding: 40px 15px 50px;
+      padding: 45px 15px 55px;
+      position: relative;
       box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
     }
 
@@ -175,7 +216,7 @@
     .wave-container svg { display: block; width: calc(100% + 1.3px); height: 60px; }
 
     /* QUOTE AR-RUM */
-    .quote-section { background-color: #5c3961; color: #ffffff; padding: 20px 25px 45px; text-align: center; }
+    .quote-section { background-color: #5c3961; color: #ffffff; padding: 25px 25px 45px; text-align: center; }
     .quote-text { font-size: 0.85rem; line-height: 1.7; font-weight: 300; margin-bottom: 12px; opacity: 0.95; }
     .quote-source { font-size: 0.85rem; font-weight: 500; color: #e1cbe6; }
 
@@ -186,7 +227,9 @@
       border-radius: 18px;
       padding: 25px 20px;
       margin-bottom: 20px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      box-shadow: 0 6px 18px rgba(115,79,120,0.08);
+      position: relative;
+      z-index: 2;
     }
 
     .event-title { font-family: 'Cinzel', serif; font-size: 1.2rem; color: #5c3961; margin-bottom: 12px; font-weight: 700; }
@@ -198,7 +241,9 @@
       border-radius: 18px;
       padding: 25px 20px;
       margin-top: 10px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      box-shadow: 0 6px 18px rgba(115,79,120,0.08);
+      position: relative;
+      z-index: 2;
     }
 
     .location-title { font-family: 'Cinzel', serif; font-size: 1.15rem; color: #5c3961; margin-bottom: 10px; font-weight: 700; }
@@ -220,7 +265,7 @@
     .btn-map:hover { background: #734f78; }
 
     /* WEDDING GIFT */
-    .gift-section { background: rgba(253, 248, 254, 0.95); padding: 40px 20px; }
+    .gift-section { background: rgba(244, 236, 247, 0.95); padding: 45px 20px; position: relative; }
     .gift-card {
       background: #ffffff;
       border: 1px dashed #734f78;
@@ -228,6 +273,8 @@
       padding: 22px;
       margin-top: 15px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      position: relative;
+      z-index: 2;
     }
     .rekening-no { font-size: 1.15rem; font-weight: 600; color: #5c3961; margin: 8px 0; letter-spacing: 1px; }
     .btn-copy {
@@ -241,8 +288,8 @@
     }
 
     /* GALERI FOTO */
-    .gallery-section { padding: 30px 20px; }
-    .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 15px; }
+    .gallery-section { padding: 40px 20px; position: relative; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 15px; position: relative; z-index: 2; }
     .gallery-grid img { width: 100%; height: 135px; object-fit: cover; border-radius: 14px; border: 2px solid #d8bfdd; box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
 
     /* UCAPAN BANNER */
@@ -258,10 +305,12 @@
     }
 
     .ucapan-box-container {
-      background: #f4ecf7;
+      background: #ffffff;
       padding: 20px;
       border-radius: 0 0 12px 12px;
       text-align: left;
+      border: 1px solid #d8bfdd;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
     }
 
     .comments-header {
@@ -284,7 +333,7 @@
       border-radius: 6px;
       font-family: inherit;
       font-size: 0.85rem;
-      background: #ffffff;
+      background: #faf5fb;
     }
 
     .btn-kirim-ucapan {
@@ -310,7 +359,8 @@
     }
 
     .ucapan-item {
-      background: #ffffff;
+      background: #fdfafc;
+      border: 1px solid #f0e1f5;
       padding: 12px 15px;
       border-radius: 8px;
       margin-bottom: 12px;
@@ -387,8 +437,8 @@
       <div class="theme-badge">VINTAGE KOREA</div>
 
       <div class="arch-frame">
-  <img src="cover.jpg" alt="Fatikah & Chanyeol">
-</div>
+        <img src="cover.jpg" alt="Fatikah & Chanyeol">
+      </div>
 
       <p class="subtitle">The Wedding Of</p>
       <h1 class="couple-name">Fatikah & Chanyeol</h1>
@@ -403,16 +453,22 @@
         Tanpa mengurangi rasa hormat, kami mengundang Anda untuk hadir di acara pernikahan kami.
       </p>
 
-      <button class="btn-open" onclick="bukaUndangan()">
-        <i class="far fa-envelope-open"></i> Buka Undangan
-      </button>
+      <div class="action-cover-wrapper">
+        <button class="btn-open" onclick="bukaUndangan()">
+          <i class="far fa-envelope-open"></i> Buka Undangan
+        </button>
+        <div class="btn-cover-music" onclick="toggleMusic()">
+          <i id="musicIconCover" class="fas fa-music"></i>
+        </div>
+      </div>
     </div>
 
     <!-- ISI UTAMA UNDANGAN -->
     <div id="main-content">
 
       <!-- SLIDE 1: PROFIL MEMPELAI -->
-      <div class="section-padding">
+      <div class="section-styled">
+        <div class="floral-ornament" style="top:-30px; left:-30px;"></div>
         <h3 class="salam-title">Assalamu’alaikum Wr. Wb.</h3>
         <p class="salam-text">
           Maha suci Allah SWT, yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah, rahmati dan ridhoilah pernikahan kami :
@@ -432,7 +488,7 @@
         <!-- PROFIL CHANYEOL -->
         <div class="mempelai-card">
           <div class="arch-frame" style="margin: 0 auto 15px; border-color: #734f78;">
-            <img src="https://picsum.photos/300/400?groom" alt="Chanyeol">
+            <img src="cover.jpg" alt="Chanyeol">
           </div>
           <h2 class="mempelai-name">Park Chanyeol</h2>
           <p class="mempelai-parents">Putra dari Bapak Nama Ayah <br> & Ibu Nama Ibu</p>
@@ -465,8 +521,8 @@
       </div>
 
       <!-- SLIDE 2: DETAIL ACARA -->
-      <div class="section-padding">
-        <h3 style="color: #5c3961; margin-bottom: 25px;">Rangkaian Acara</h3>
+      <div class="section-styled">
+        <h3 style="color: #5c3961; margin-bottom: 25px; font-family: 'Cinzel', serif;">Rangkaian Acara</h3>
 
         <div class="event-card">
           <div class="event-title">AKAD NIKAH</div>
@@ -495,7 +551,7 @@
 
       <!-- WEDDING GIFT -->
       <div class="gift-section">
-        <h3 style="color: #5c3961;">Wedding Gift</h3>
+        <h3 style="color: #5c3961; font-family: 'Cinzel', serif;">Wedding Gift</h3>
         <p style="font-size: 0.85rem; color: #666; margin-top: 5px;">Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Dan jika Anda ingin memberikan hadiah, dapat melalui rekening di bawah ini:</p>
 
         <div class="gift-card">
@@ -515,7 +571,7 @@
 
       <!-- GALERI FOTO -->
       <div class="gallery-section">
-        <h3 style="color: #5c3961;">Momen Bahagia</h3>
+        <h3 style="color: #5c3961; font-family: 'Cinzel', serif;">Momen Bahagia</h3>
         <div class="gallery-grid">
           <img src="https://picsum.photos/200/200?1" alt="Foto 1">
           <img src="https://picsum.photos/200/200?2" alt="Foto 2">
@@ -588,16 +644,22 @@
       
       music.play();
       isPlaying = true;
+      document.getElementById("musicIcon").className = "fas fa-music";
+      document.getElementById("musicIconCover").className = "fas fa-music";
     }
 
     function toggleMusic() {
       const musicIcon = document.getElementById("musicIcon");
+      const musicIconCover = document.getElementById("musicIconCover");
+      
       if (isPlaying) {
         music.pause();
         musicIcon.className = "fas fa-volume-mute";
+        musicIconCover.className = "fas fa-volume-mute";
       } else {
         music.play();
         musicIcon.className = "fas fa-music";
+        musicIconCover.className = "fas fa-music";
       }
       isPlaying = !isPlaying;
     }
