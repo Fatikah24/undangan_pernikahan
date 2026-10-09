@@ -1,0 +1,111 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f1ea;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+.card {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+}
+
+h1 { 
+  font-size: 1.2rem; 
+  color: #7a7a7a; 
+  text-transform: uppercase; 
+  letter-spacing: 2px; 
+}
+
+h2 { 
+  font-size: 2rem; 
+  color: #4a5d4e; 
+  margin: 10px 0; 
+}
+
+p { 
+  color: #555; 
+  line-height: 1.6; 
+}
+
+.event-info {
+  background: #f9f8f6;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+/* Countdown Timer */
+.countdown-container {
+  margin: 20px 0;
+  padding: 15px;
+  background: #f4f1ea;
+  border-radius: 10px;
+}
+
+#timer {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+#timer div {
+  background: #ffffff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  min-width: 50px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+#timer span {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #4a5d4e;
+}
+
+/* Form RSVP */
+.rsvp-container {
+  margin-top: 25px;
+  text-align: left;
+}
+
+.rsvp-container h3 {
+  text-align: center;
+  color: #4a5d4e;
+}
+
+.rsvp-container input, 
+.rsvp-container select, 
+.rsvp-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 6px 0 12px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.rsvp-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4a5d4e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.rsvp-container button:disabled {
+  background-color: #a0a0a0;
+}

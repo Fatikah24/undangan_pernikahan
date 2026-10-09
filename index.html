@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Undangan Pernikahan Romeo & Juliet</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="card">
+    <h1>The Wedding of</h1>
+    <h2>Romeo & Juliet</h2>
+    <p>Kami mengundang Anda untuk hadir di hari bahagia kami.</p>
+
+    <div class="event-info">
+      <p><strong>Tanggal:</strong> Sabtu, 12 Desember 2026</p>
+      <p><strong>Waktu:</strong> 09.00 WIB - Selesai</p>
+      <p><strong>Lokasi:</strong> Gedung Serbaguna, Jakarta</p>
+    </div>
+
+    <!-- COUNTDOWN TIMER -->
+    <div class="countdown-container">
+      <h3>Hitung Mundur Acara</h3>
+      <div id="timer">
+        <div><span id="days">00</span><br><small>Hari</small></div>
+        <div><span id="hours">00</span><br><small>Jam</small></div>
+        <div><span id="minutes">00</span><br><small>Menit</small></div>
+        <div><span id="seconds">00</span><br><small>Detik</small></div>
+      </div>
+    </div>
+
+    <!-- FORM RSVP -->
+    <div class="rsvp-container">
+      <h3>Konfirmasi Kehadiran (RSVP)</h3>
+      <form id="rsvpForm">
+        <input type="text" name="nama" placeholder="Nama Lengkap" required><br>
+        <select name="kehadiran" required>
+          <option value="">-- Pilih Kehadiran --</option>
+          <option value="Hadir">Hadir</option>
+          <option value="Tidak Hadir">Tidak Hadir</option>
+        </select><br>
+        <input type="number" name="jumlah" placeholder="Jumlah Tamu (Orang)" min="1" required><br>
+        <textarea name="pesan" placeholder="Ucapan & Doa" rows="3"></textarea><br>
+        <button type="submit" id="btnSubmit">Kirim RSVP</button>
+      </form>
+      <p id="rsvpStatus" style="display:none; margin-top:10px; font-weight:bold;"></p>
+    </div>
+  </div>
+
+  <script>
+    // 1. JAVASCRIPT COUNTDOWN TIMER
+    const targetDate = new Date("2026-12-12T09:00:00").getTime();
+
+    const countdownInterval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance < 0) {
+        clearInterval(countdownInterval);
+        document.getElementById("timer").innerHTML = "<b>Acara Telah Berlangsung!</b>";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("days").innerText = days < 10 ? '0' + days : days;
+      document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
+      document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
+      document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
+    }, 1000);
+
+    // 2. JAVASCRIPT FORM RSVP KE GOOGLE SHEETS
+    // Masukkan URL Google Apps Script kamu di sini jika sudah dibuat:
+    const scriptURL = 'PASTE_WEB_APP_URL_KAMU_DI_SINI';
+
+    const form = document.getElementById('rsvpForm');
+    const statusMsg = document.getElementById('rsvpStatus');
+    const btnSubmit = document.getElementById('btnSubmit');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      btnSubmit.disabled = true;
+      btnSubmit.innerText = "Mengirim...";
+      statusMsg.style.display = "block";
+      statusMsg.innerText = "Sedang mengirim data...";
+
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+          statusMsg.style.color = "green";
+          statusMsg.innerText = "Terima kasih! RSVP Anda berhasil dikirim.";
+          form.reset();
+          btnSubmit.disabled = false;
+          btnSubmit.innerText = "Kirim RSVP";
+        })
+        .catch(error => {
+          statusMsg.style.color = "red";
+          statusMsg.innerText = "Gagal mengirim. Silakan coba lagi!";
+          btnSubmit.disabled = false;
+          btnSubmit.innerText = "Kirim RSVP";
+          console.error('Error!', error.message);
+        });
+    });
+  </script>
+</body>
+</html>
