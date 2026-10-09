@@ -3,12 +3,153 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Undangan Pernikahan Romeo & Juliet</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Undangan Pernikahan</title>
+
+  <!-- CSS TAMPILAN (DESAIN) -->
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f1ea;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    .tamu-box {
+      background: #eef2ef;
+      padding: 12px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      border-left: 4px solid #4a5d4e;
+    }
+
+    .tamu-box p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .tamu-box h3 {
+      margin: 5px 0 0 0;
+      color: #2c3e50;
+      font-size: 1.2rem;
+    }
+
+    h1 { 
+      font-size: 1.1rem; 
+      color: #7a7a7a; 
+      text-transform: uppercase; 
+      letter-spacing: 2px; 
+      margin-bottom: 5px;
+    }
+
+    h2 { 
+      font-size: 2rem; 
+      color: #4a5d4e; 
+      margin: 10px 0; 
+    }
+
+    p { 
+      color: #555; 
+      line-height: 1.6; 
+    }
+
+    .event-info {
+      background: #f9f8f6;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    /* Countdown Timer Style */
+    .countdown-container {
+      margin: 20px 0;
+      padding: 15px;
+      background: #f4f1ea;
+      border-radius: 10px;
+    }
+
+    #timer {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 10px;
+    }
+
+    #timer div {
+      background: #ffffff;
+      padding: 8px 12px;
+      border-radius: 8px;
+      min-width: 50px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    #timer span {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: #4a5d4e;
+    }
+
+    /* Form RSVP Style */
+    .rsvp-container {
+      margin-top: 25px;
+      text-align: left;
+    }
+
+    .rsvp-container h3 {
+      text-align: center;
+      color: #4a5d4e;
+    }
+
+    .rsvp-container input, 
+    .rsvp-container select, 
+    .rsvp-container textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0 12px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      box-sizing: border-box;
+      font-family: inherit;
+    }
+
+    .rsvp-container button {
+      width: 100%;
+      padding: 12px;
+      background-color: #4a5d4e;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .rsvp-container button:disabled {
+      background-color: #a0a0a0;
+    }
+  </style>
 </head>
 <body>
 
   <div class="card">
+    <!-- NAMA TAMU OTOMATIS -->
+    <div class="tamu-box">
+      <p>Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+      <h3 id="namaTamu">Tamu Undangan</h3>
+    </div>
+
     <h1>The Wedding of</h1>
     <h2>Romeo & Juliet</h2>
     <p>Kami mengundang Anda untuk hadir di hari bahagia kami.</p>
@@ -48,8 +189,17 @@
     </div>
   </div>
 
+  <!-- JAVASCRIPT FITUR & INTERAKSI -->
   <script>
-    // 1. JAVASCRIPT COUNTDOWN TIMER
+    // 1. FITUR NAMA TAMU OTOMATIS DARI URL (?to=NamaTamu)
+    const urlParams = new URLSearchParams(window.location.search);
+    const nama = urlParams.get('to');
+
+    if (nama) {
+      document.getElementById('namaTamu').innerText = decodeURIComponent(nama);
+    }
+
+    // 2. FITUR COUNTDOWN TIMER
     const targetDate = new Date("2026-12-12T09:00:00").getTime();
 
     const countdownInterval = setInterval(() => {
@@ -73,9 +223,8 @@
       document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
     }, 1000);
 
-    // 2. JAVASCRIPT FORM RSVP KE GOOGLE SHEETS
-    // Masukkan URL Google Apps Script kamu di sini jika sudah dibuat:
-    const scriptURL = 'PASTE_WEB_APP_URL_KAMU_DI_SINI';
+    // 3. FITUR FORM RSVP KE GOOGLE SHEETS
+    const scriptURL = 'PASTE_WEB_APP_URL_KAMU_DI_SINI'; // Masukkan URL Google Apps Script kamu di sini nanti
 
     const form = document.getElementById('rsvpForm');
     const statusMsg = document.getElementById('rsvpStatus');
