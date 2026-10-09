@@ -169,7 +169,7 @@
     .event-title { font-family: 'Cinzel', serif; font-size: 1.2rem; color: #5c3961; margin-bottom: 12px; font-weight: 700; }
     .event-info { font-size: 0.88rem; color: #555; margin-bottom: 8px; }
 
-    /* KOTAK LOKASI TERPISAH DI BUAWAH */
+    /* KOTAK LOKASI TERPISAH DI BAWAH */
     .location-card {
       background: rgba(255, 255, 255, 0.9);
       border: 1px solid #d8bfdd;
@@ -223,14 +223,55 @@
     .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 15px; }
     .gallery-grid img { width: 100%; height: 135px; object-fit: cover; border-radius: 14px; border: 2px solid #d8bfdd; box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
 
-    /* FORM RSVP */
-    .rsvp-section { background: #ffffff; padding: 40px 20px 60px; text-align: left; }
-    .rsvp-section h3 { text-align: center; color: #5c3961; margin-bottom: 20px; }
-    .rsvp-section input, .rsvp-section select, .rsvp-section textarea {
+    /* FORM UCAPAN & DOA (HASIL LANGSUNG TAMPIL) */
+    .ucapan-section { background: #ffffff; padding: 40px 20px 60px; text-align: left; }
+    .ucapan-section h3 { text-align: center; color: #5c3961; margin-bottom: 20px; }
+    .ucapan-section input, .ucapan-section select, .ucapan-section textarea {
       width: 100%; padding: 11px; margin-bottom: 12px; border: 1px solid #d8bfdd; border-radius: 10px; font-family: inherit; background: #faf7fc;
     }
-    .rsvp-section button {
+    .ucapan-section button {
       width: 100%; padding: 13px; background: #5c3961; color: white; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    /* DAFTAR KOTA UCAPAN YANG LANGSUNG MUNCUL */
+    .ucapan-list {
+      margin-top: 25px;
+      max-height: 280px;
+      overflow-y: auto;
+      padding-right: 5px;
+    }
+
+    .ucapan-card {
+      background: #fbf6fb;
+      border-left: 4px solid #5c3961;
+      padding: 12px 15px;
+      border-radius: 8px;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    }
+
+    .ucapan-card-name {
+      font-weight: 600;
+      color: #5c3961;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .ucapan-card-status {
+      font-size: 0.7rem;
+      background: #e1cbe6;
+      color: #5c3961;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+
+    .ucapan-card-msg {
+      font-size: 0.82rem;
+      color: #555;
+      margin-top: 5px;
+      line-height: 1.4;
     }
 
     /* FLOATING MUSIC BUTTON */
@@ -357,7 +398,7 @@
           <div class="event-info"><i class="far fa-clock"></i> 11.00 WIB - Selesai</div>
         </div>
 
-        <!-- KOTAK LOKASI ACARA KHUSUS DI BISA DI BAWAH -->
+        <!-- KOTAK LOKASI ACARA TERPISAH DI BAWAH -->
         <div class="location-card">
           <div class="location-title">LOKASI ACARA</div>
           <div class="location-address">
@@ -404,20 +445,30 @@
         </div>
       </div>
 
-      <!-- SLIDE AKHIR: FORM RSVP & UCAPAN DOA -->
-      <div class="rsvp-section">
-        <h3>Konfirmasi Kehadiran & Ucapan</h3>
-        <form id="rsvpForm">
-          <input type="text" name="nama" placeholder="Nama Lengkap" required>
-          <select name="kehadiran" required>
-            <option value="">-- Pilih Kehadiran --</option>
+      <!-- SLIDE AKHIR: FORM KATA UCAPAN & DOA (LANGSUNG TAMPIL) -->
+      <div class="ucapan-section">
+        <h3>Kata Ucapan & Doa</h3>
+        <form id="formUcapan">
+          <input type="text" id="inputNama" placeholder="Nama Lengkap" required>
+          <select id="inputKehadiran" required>
+            <option value="">-- Konfirmasi Kehadiran --</option>
             <option value="Hadir">Hadir</option>
             <option value="Tidak Hadir">Tidak Hadir</option>
           </select>
-          <input type="number" name="jumlah" placeholder="Jumlah Tamu" min="1" required>
-          <textarea name="pesan" placeholder="Kata Ucapan & Doa" rows="3" required></textarea>
-          <button type="submit">Kirim Ucapan & RSVP</button>
+          <textarea id="inputPesan" placeholder="Tuliskan ucapan & doa untuk kedua mempelai..." rows="3" required></textarea>
+          <button type="submit">Kirim Ucapan</button>
         </form>
+
+        <!-- KOTAK UNTUK MENAMPILKAN HASIL UCAPAN SECARA LANGSUNG -->
+        <div class="ucapan-list" id="daftarUcapan">
+          <div class="ucapan-card">
+            <div class="ucapan-card-name">
+              <span>Budi & Keluarga</span>
+              <span class="ucapan-card-status">Hadir</span>
+            </div>
+            <div class="ucapan-card-msg">Selamat ya Fatikah & Chanyeol! Semoga menjadi keluarga yang sakinah mawaddah warahmah, bahagia selalu!</div>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -430,6 +481,7 @@
     const nama = urlParams.get('to');
     if (nama) {
       document.getElementById('namaTamu').innerText = decodeURIComponent(nama);
+      document.getElementById('inputNama').value = decodeURIComponent(nama);
     }
 
     // 2. FUNGSI BUKA UNDANGAN & MUSIK
@@ -475,6 +527,34 @@
       navigator.clipboard.writeText(text);
       alert("Nomor rekening berhasil disalin: " + text);
     }
+
+    // 5. FITUR KIRIM UCAPAN (LANGSUNG MUNCUL DI UNDANGAN)
+    document.getElementById('formUcapan').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const namaVal = document.getElementById('inputNama').value;
+      const kehadiranVal = document.getElementById('inputKehadiran').value;
+      const pesanVal = document.getElementById('inputPesan').value;
+
+      // Buat elemen ucapan baru
+      const newCard = document.createElement('div');
+      newCard.className = 'ucapan-card';
+      newCard.innerHTML = `
+        <div class="ucapan-card-name">
+          <span>${namaVal}</span>
+          <span class="ucapan-card-status">${kehadiranVal}</span>
+        </div>
+        <div class="ucapan-card-msg">${pesanVal}</div>
+      `;
+
+      // Masukkan ke daftar ucapan paling atas
+      const list = document.getElementById('daftarUcapan');
+      list.insertBefore(newCard, list.firstChild);
+
+      // Reset form
+      document.getElementById('inputPesan').value = '';
+      alert("Terima kasih! Ucapan Anda berhasil dipublikasikan di halaman ini.");
+    });
   </script>
 </body>
 </html>
