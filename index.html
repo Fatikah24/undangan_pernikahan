@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Wedding of Fatikah & Ari</title>
+  <title>The Wedding of Fatikah & Ari Sukmawan</title>
 
   <!-- Google Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Great+Vibes&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -14,7 +14,6 @@
     
     body {
       font-family: 'Poppins', sans-serif;
-      /* Background untuk layar besar (PC/Laptop) dengan nuansa ungu vintage */
       background: radial-gradient(circle at center, #5c3563 0%, #2b1330 100%);
       color: #3a2b3c;
       min-height: 100vh;
@@ -24,7 +23,6 @@
       overflow-x: hidden;
     }
 
-    /* Container utama yang membungkus undangan agar tetap rapi di HP maupun PC */
     .app-wrapper {
       width: 100%;
       min-height: 100vh;
@@ -44,7 +42,6 @@
       overflow: hidden;
     }
 
-    /* Efek bayangan dan border khusus tampilan PC agar mirip bingkai smartphone elegan */
     @media (min-width: 481px) {
       .app-container {
         height: 100vh;
@@ -179,7 +176,7 @@
     }
     .btn-cover-music:hover { background: rgba(255, 255, 255, 0.4); }
 
-    /* ISI UTAMA UNDANGAN DENGAN MOTIF BUNGA DI SETIAP SECTION */
+    /* ISI UTAMA UNDANGAN */
     #main-content { 
       text-align: center;
       background: linear-gradient(180deg, #f9f2fb 0%, #f1e3f5 100%);
@@ -446,16 +443,16 @@
         <div class="theme-badge">VINTAGE KOREA</div>
 
         <div class="arch-frame">
-          <img src="cover.jpg" alt="Fatikah & Ari">
+          <img src="cover.jpg" alt="Fatikah & Ari Sukmawan">
         </div>
 
         <p class="subtitle">The Wedding Of</p>
-        <h1 class="couple-name">Fatikah & Ari</h1>
+        <h1 class="couple-name">Fatikah & Ari Sukmawan</h1>
         <p style="font-size: 0.85rem; color: #f2e3f5; margin-bottom: 10px;">Jumat, 30 Oktober 2026</p>
 
         <div class="guest-section">
           <span class="guest-label">Kepada Yth. Bapak/Ibu/Saudara/i :</span>
-          <div class="guest-name" id="namaTamu">Tamu Undangan</div>
+          <div class="guest-name" id="namaTamu">Fitri & DO bok obok</div>
         </div>
 
         <p style="font-size: 0.75rem; color: #f2e3f5; max-width: 290px; margin-bottom: 15px;">
@@ -495,12 +492,12 @@
 
           <div style="font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #734f78; margin: 20px 0;">&</div>
 
-          <!-- PROFIL ARI -->
+          <!-- PROFIL ARI SUKMAWAN -->
           <div class="mempelai-card">
             <div class="arch-frame" style="margin: 0 auto 15px; border-color: #734f78;">
-              <img src="cover.jpg" alt="Ari">
+              <img src="cover.jpg" alt="Ari Sukmawan">
             </div>
-            <h2 class="mempelai-name">Park Ari</h2>
+            <h2 class="mempelai-name">Ari Sukmawan</h2>
             <p class="mempelai-parents">Putra dari Bapak Nama Ayah <br> & Ibu Nama Ibu</p>
           </div>
         </div>
@@ -574,7 +571,7 @@
           <div class="gift-card">
             <p style="font-size: 0.85rem; color: #777;">Bank Mandiri (Suami)</p>
             <div class="rekening-no" id="rekSuami">0987654321</div>
-            <p style="font-size: 0.8rem; color: #555;">a.n Park Ari</p>
+            <p style="font-size: 0.8rem; color: #555;">a.n Ari Sukmawan</p>
             <button class="btn-copy" onclick="copyText('rekSuami')">Salin No. Rekening</button>
           </div>
         </div>
@@ -601,7 +598,7 @@
             </div>
 
             <form id="formUcapan">
-              <input type="text" id="inputNama" placeholder="Nama Lengkap" required>
+              <input type="text" id="inputNama" placeholder="Nama Lengkap" value="Fitri & DO bok obok" required>
               <textarea id="inputPesan" placeholder="Tulis Ucapan & Doa" rows="3" required></textarea>
               <select id="inputKehadiran" required>
                 <option value="">Konfirmasi Kehadiran</option>
@@ -619,7 +616,7 @@
                 </div>
                 <div class="ucapan-item-time"><i class="far fa-clock"></i> Baru saja</div>
                 <div class="ucapan-item-text">
-                  Fatikah & Ari selamat menempuh hidup baru yaa 💕<br>
+                  Fatikah & Ari Sukmawan selamat menempuh hidup baru yaa 💕<br>
                   Semoga pernikahan kalian sakinah mawadah warohmah, amiin 😇
                 </div>
               </div>
@@ -633,15 +630,7 @@
   </div>
 
   <script>
-    // 1. DYNAMIC NAMA TAMU DARI URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const nama = urlParams.get('to');
-    if (nama) {
-      document.getElementById('namaTamu').innerText = decodeURIComponent(nama);
-      document.getElementById('inputNama').value = decodeURIComponent(nama);
-    }
-
-    // 2. FUNGSI BUKA UNDANGAN & MUSIK (Mulai dari 01:05 = 65 Detik)
+    // FUNGSI BUKA UNDANGAN & MUSIK (Mulai dari 01:05 = 65 Detik)
     const music = document.getElementById("bgMusic");
     let isPlaying = false;
 
@@ -650,9 +639,7 @@
       cover.style.transform = "translateY(-100%)";
       setTimeout(() => { cover.style.display = "none"; }, 800);
       
-      // Mengatur lagu mulai dari menit ke 01:05 (65 detik)
       music.currentTime = 65; 
-      
       music.play();
       isPlaying = true;
       document.getElementById("musicIconCover").className = "fas fa-music";
@@ -671,7 +658,7 @@
       isPlaying = !isPlaying;
     }
 
-    // 3. COUNTDOWN TIMER (DISET KE 30 OKTOBER 2026)
+    // COUNTDOWN TIMER (DISET KE 30 OKTOBER 2026)
     const targetDate = new Date("2026-10-30T08:00:00").getTime();
     setInterval(() => {
       const now = new Date().getTime();
@@ -684,14 +671,14 @@
       document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
     }, 1000);
 
-    // 4. SALIN REKENING
+    // SALIN REKENING
     function copyText(elementId) {
       const text = document.getElementById(elementId).innerText;
       navigator.clipboard.writeText(text);
       alert("Nomor rekening berhasil disalin: " + text);
     }
 
-    // 5. FITUR UCAPAN & KOMENTAR
+    // FITUR UCAPAN & KOMENTAR
     let countComments = 1;
     document.getElementById('formUcapan').addEventListener('submit', function(e) {
       e.preventDefault();
