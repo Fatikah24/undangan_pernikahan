@@ -403,7 +403,7 @@
       line-height: 1.5;
     }
 
-    /* FLOATING MUSIC BUTTON */
+    /* FLOATING MUSIC BUTTON (Hanya muncul di dalam setelah dibuka) */
     .music-btn {
       position: fixed; bottom: 20px; right: calc(50% - 220px);
       width: 44px; height: 44px; background: #5c3961; color: white;
@@ -421,6 +421,7 @@
   <!-- AUDIO LOKAL (lagu.mp3) -->
   <audio id="bgMusic" loop src="lagu.mp3"></audio>
 
+  <!-- Tombol Musik Melayang di Dalam Undangan -->
   <div class="music-btn" onclick="toggleMusic()">
     <i id="musicIcon" class="fas fa-music"></i>
   </div>
@@ -453,6 +454,7 @@
         Tanpa mengurangi rasa hormat, kami mengundang Anda untuk hadir di acara pernikahan kami.
       </p>
 
+      <!-- HANYA 1 TOMBOL MUSIK DI SAMPING TOMBOL BUKA -->
       <div class="action-cover-wrapper">
         <button class="btn-open" onclick="bukaUndangan()">
           <i class="far fa-envelope-open"></i> Buka Undangan
@@ -655,11 +657,11 @@
       if (isPlaying) {
         music.pause();
         musicIcon.className = "fas fa-volume-mute";
-        musicIconCover.className = "fas fa-volume-mute";
+        if(musicIconCover) musicIconCover.className = "fas fa-volume-mute";
       } else {
         music.play();
         musicIcon.className = "fas fa-music";
-        musicIconCover.className = "fas fa-music";
+        if(musicIconCover) musicIconCover.className = "fas fa-music";
       }
       isPlaying = !isPlaying;
     }
