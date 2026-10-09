@@ -14,7 +14,7 @@
     
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #3f2a45;
+      background-color: #2e1c33;
       color: #3a2b3c;
       overflow-x: hidden;
     }
@@ -22,14 +22,14 @@
     .app-container {
       max-width: 480px;
       margin: 0 auto;
-      background: #f4ecf7;
+      background: #fbf6fb url('https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=600&q=80') center/cover repeat-y;
       min-height: 100vh;
       position: relative;
-      box-shadow: 0 0 35px rgba(0,0,0,0.4);
+      box-shadow: 0 0 40px rgba(0,0,0,0.5);
       overflow: hidden;
     }
 
-    /* 1. COVER DEPAN (VINTAGE KOREA STYLE) */
+    /* 1. COVER DEPAN VINTAGE KOREA AESTHETIC */
     #cover {
       position: fixed;
       top: 0; left: 50%;
@@ -37,7 +37,8 @@
       width: 100%;
       max-width: 480px;
       height: 100vh;
-      background: #89638d url('https://www.transparenttextures.com/patterns/oriental-tiles.png');
+      background: linear-gradient(135deg, rgba(137, 99, 141, 0.95), rgba(88, 55, 92, 0.95)), 
+                  url('https://images.unsplash.com/photo-1528459801416-a9e53bbf4e17?auto=format&fit=crop&w=600&q=80') center/cover;
       color: #ffffff;
       display: flex;
       flex-direction: column;
@@ -52,22 +53,25 @@
     .theme-badge {
       font-family: 'Cinzel', serif;
       font-size: 0.75rem;
-      letter-spacing: 3px;
-      background: rgba(255, 255, 255, 0.2);
-      padding: 5px 15px;
+      letter-spacing: 4px;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(5px);
+      padding: 6px 18px;
       border-radius: 20px;
-      margin-bottom: 15px;
-      border: 1px solid rgba(255, 255, 255, 0.4);
+      margin-bottom: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
     .arch-frame {
-      width: 180px;
-      height: 250px;
-      border-radius: 90px 90px 0 0;
+      width: 190px;
+      height: 260px;
+      border-radius: 95px 95px 0 0;
       border: 3px solid #ffffff;
       overflow: hidden;
       margin-bottom: 15px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+      position: relative;
     }
 
     .arch-frame img { width: 100%; height: 100%; object-fit: cover; }
@@ -75,21 +79,29 @@
     
     h1.couple-name { 
       font-family: 'Great Vibes', cursive; 
-      font-size: 3.5rem; 
+      font-size: 3.6rem; 
       color: #ffffff; 
       margin: 5px 0;
-      text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      text-shadow: 0 3px 8px rgba(0,0,0,0.3);
     }
 
-    .guest-section { margin: 15px 0; background: rgba(255, 255, 255, 0.15); padding: 12px 20px; border-radius: 12px; width: 100%; }
-    .guest-label { font-size: 0.85rem; color: #f2e3f5; }
-    .guest-name { font-size: 1.3rem; font-weight: 600; color: #ffffff; margin-top: 4px; }
+    .guest-section { 
+      margin: 15px 0; 
+      background: rgba(255, 255, 255, 0.2); 
+      backdrop-filter: blur(8px);
+      padding: 14px 20px; 
+      border-radius: 15px; 
+      border: 1px solid rgba(255,255,255,0.3);
+      width: 100%; 
+    }
+    .guest-label { font-size: 0.85rem; color: #f9f0fb; }
+    .guest-name { font-size: 1.35rem; font-weight: 600; color: #ffffff; margin-top: 4px; }
 
     .btn-open {
       background-color: #ffffff;
       color: #5c3961;
       border: none;
-      padding: 12px 28px;
+      padding: 12px 30px;
       border-radius: 25px;
       font-size: 0.95rem;
       font-weight: 600;
@@ -97,118 +109,136 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
       transition: all 0.3s;
     }
 
     .btn-open:hover { background-color: #f2e3f5; transform: translateY(-2px); }
 
     /* 2. ISI UTAMA UNDANGAN */
-    #main-content { text-align: center; padding-top: 30px; }
+    #main-content { text-align: center; }
 
     .section-padding { padding: 40px 20px; }
 
-    /* SLIDE SALAM & PROFIL MEMPALAI */
-    .salam-title { font-weight: 600; font-size: 1.2rem; color: #5c3961; margin-bottom: 12px; }
+    .salam-title { font-weight: 600; font-size: 1.25rem; color: #5c3961; margin-bottom: 12px; }
     .salam-text { font-size: 0.88rem; line-height: 1.7; color: #555; max-width: 380px; margin: 0 auto 30px; }
 
     .mempelai-card { margin-bottom: 35px; }
-    .mempelai-name { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #5c3961; margin: 10px 0 5px; }
+    .mempelai-name { font-family: 'Great Vibes', cursive; font-size: 2.6rem; color: #5c3961; margin: 10px 0 5px; }
     .mempelai-parents { font-size: 0.82rem; color: #666; line-height: 1.5; }
 
-    /* COUNTDOWN TIMER PURPLE */
+    /* COUNTDOWN TIMER GRADIENT PURPLE */
     .countdown-section {
-      background: #734f78;
+      background: linear-gradient(135deg, #734f78, #533458);
       color: #ffffff;
-      padding: 35px 15px 50px;
+      padding: 40px 15px 50px;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
     }
 
-    .timer-grid { display: flex; justify-content: center; gap: 10px; margin-top: 15px; }
+    .timer-grid { display: flex; justify-content: center; gap: 10px; margin-top: 18px; }
     .timer-box {
       background: #ffffff;
       color: #5c3961;
-      width: 70px; height: 75px;
+      width: 72px; height: 76px;
       border-radius: 18px;
       display: flex; flex-direction: column; justify-content: center; align-items: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.15);
     }
-    .timer-box span { font-size: 1.3rem; font-weight: 700; line-height: 1.1; }
+    .timer-box span { font-size: 1.35rem; font-weight: 700; line-height: 1.1; }
     .timer-box small { font-size: 0.75rem; font-weight: 400; margin-top: 3px; color: #777; }
 
     .wave-container { position: relative; width: 100%; overflow: hidden; line-height: 0; margin-top: -30px; }
     .wave-container svg { display: block; width: calc(100% + 1.3px); height: 60px; }
 
     /* QUOTE AR-RUM */
-    .quote-section { background-color: #5c3961; color: #ffffff; padding: 20px 25px 40px; text-align: center; }
+    .quote-section { background-color: #5c3961; color: #ffffff; padding: 20px 25px 45px; text-align: center; }
     .quote-text { font-size: 0.85rem; line-height: 1.7; font-weight: 300; margin-bottom: 12px; opacity: 0.95; }
     .quote-source { font-size: 0.85rem; font-weight: 500; color: #e1cbe6; }
 
     /* SLIDE DETAIL ACARA */
     .event-card {
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(5px);
       border: 1px solid #d8bfdd;
-      border-radius: 15px;
+      border-radius: 18px;
       padding: 25px 20px;
       margin-bottom: 20px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
     }
 
-    .event-title { font-family: 'Cinzel', serif; font-size: 1.2rem; color: #5c3961; margin-bottom: 10px; }
-    .event-info { font-size: 0.88rem; color: #555; margin-bottom: 6px; }
+    .event-title { font-family: 'Cinzel', serif; font-size: 1.2rem; color: #5c3961; margin-bottom: 12px; font-weight: 700; }
+    .event-info { font-size: 0.88rem; color: #555; margin-bottom: 8px; }
+
+    /* KOTAK LOKASI TERPISAH DI BUAWAH */
+    .location-card {
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid #d8bfdd;
+      border-radius: 18px;
+      padding: 25px 20px;
+      margin-top: 10px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    }
+
+    .location-title { font-family: 'Cinzel', serif; font-size: 1.15rem; color: #5c3961; margin-bottom: 10px; font-weight: 700; }
+    .location-address { font-size: 0.88rem; color: #555; margin-bottom: 15px; line-height: 1.5; }
 
     .btn-map {
       display: inline-block;
-      margin-top: 15px;
       background: #5c3961;
       color: white;
-      padding: 8px 20px;
+      padding: 10px 24px;
       border-radius: 20px;
       text-decoration: none;
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       font-weight: 500;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: all 0.3s;
     }
 
+    .btn-map:hover { background: #734f78; }
+
     /* SLIDE WEDDING GIFT */
-    .gift-section { background: #fdfafc; padding: 40px 20px; }
+    .gift-section { background: rgba(253, 250, 252, 0.9); padding: 40px 20px; }
     .gift-card {
       background: #ffffff;
       border: 1px dashed #734f78;
-      border-radius: 12px;
-      padding: 20px;
+      border-radius: 15px;
+      padding: 22px;
       margin-top: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
     }
-    .rekening-no { font-size: 1.1rem; font-weight: 600; color: #5c3961; margin: 8px 0; letter-spacing: 1px; }
+    .rekening-no { font-size: 1.15rem; font-weight: 600; color: #5c3961; margin: 8px 0; letter-spacing: 1px; }
     .btn-copy {
       background: #734f78;
       color: white;
       border: none;
-      padding: 6px 15px;
-      border-radius: 15px;
-      font-size: 0.78rem;
+      padding: 7px 18px;
+      border-radius: 18px;
+      font-size: 0.8rem;
       cursor: pointer;
     }
 
     /* GALERI FOTO */
     .gallery-section { padding: 30px 20px; }
-    .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 15px; }
-    .gallery-grid img { width: 100%; height: 130px; object-fit: cover; border-radius: 12px; border: 2px solid #d8bfdd; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 15px; }
+    .gallery-grid img { width: 100%; height: 135px; object-fit: cover; border-radius: 14px; border: 2px solid #d8bfdd; box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
 
-    /* FORM RSVP DI PALING AKHIR SLIDE */
+    /* FORM RSVP */
     .rsvp-section { background: #ffffff; padding: 40px 20px 60px; text-align: left; }
-    .rsvp-section h3 { text-align: center; color: #5c3961; margin-bottom: 15px; }
+    .rsvp-section h3 { text-align: center; color: #5c3961; margin-bottom: 20px; }
     .rsvp-section input, .rsvp-section select, .rsvp-section textarea {
-      width: 100%; padding: 10px; margin-bottom: 12px; border: 1px solid #d8bfdd; border-radius: 8px; font-family: inherit;
+      width: 100%; padding: 11px; margin-bottom: 12px; border: 1px solid #d8bfdd; border-radius: 10px; font-family: inherit; background: #faf7fc;
     }
     .rsvp-section button {
-      width: 100%; padding: 12px; background: #5c3961; color: white; border: none; border-radius: 8px; font-weight: 600; cursor: pointer;
+      width: 100%; padding: 13px; background: #5c3961; color: white; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     }
 
     /* FLOATING MUSIC BUTTON */
     .music-btn {
       position: fixed; bottom: 20px; right: calc(50% - 220px);
-      width: 42px; height: 42px; background: #5c3961; color: white;
+      width: 44px; height: 44px; background: #5c3961; color: white;
       border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      cursor: pointer; z-index: 1000; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      cursor: pointer; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
     @media (max-width: 480px) {
       .music-btn { right: 20px; }
@@ -227,7 +257,7 @@
 
   <div class="app-container">
 
-    <!-- 1. COVER SAMPUL DEPAN (SAMPUL UTAMA) -->
+    <!-- 1. COVER SAMPUL DEPAN VINTAGE KOREA AESTHETIC -->
     <div id="cover">
       <div class="theme-badge">VINTAGE KOREA</div>
 
@@ -318,8 +348,6 @@
           <div class="event-title">AKAD NIKAH</div>
           <div class="event-info"><i class="far fa-calendar-alt"></i> Sabtu, 13 Juni 2026</div>
           <div class="event-info"><i class="far fa-clock"></i> 08.00 WIB - Selesai</div>
-          <div class="event-info"><i class="fas fa-map-marker-alt"></i> Gedung Pernikahan Utama, Jakarta</div>
-          <a href="https://maps.google.com" target="_blank" class="btn-map"><i class="fas fa-location-arrow"></i> Petunjuk Lokasi</a>
         </div>
 
         <!-- RESEPSI -->
@@ -327,8 +355,19 @@
           <div class="event-title">RESEPSI</div>
           <div class="event-info"><i class="far fa-calendar-alt"></i> Sabtu, 13 Juni 2026</div>
           <div class="event-info"><i class="far fa-clock"></i> 11.00 WIB - Selesai</div>
-          <div class="event-info"><i class="fas fa-map-marker-alt"></i> Gedung Pernikahan Utama, Jakarta</div>
-          <a href="https://maps.google.com" target="_blank" class="btn-map"><i class="fas fa-location-arrow"></i> Petunjuk Lokasi</a>
+        </div>
+
+        <!-- KOTAK LOKASI ACARA KHUSUS DI BISA DI BAWAH -->
+        <div class="location-card">
+          <div class="location-title">LOKASI ACARA</div>
+          <div class="location-address">
+            <i class="fas fa-map-marker-alt" style="color: #5c3961;"></i><br>
+            <strong>Gedung Pernikahan Utama</strong><br>
+            Jl. Raya Utama No. 123, Jakarta
+          </div>
+          <a href="https://maps.google.com" target="_blank" class="btn-map">
+            <i class="fas fa-location-arrow"></i> Petunjuk Lokasi Google Maps
+          </a>
         </div>
       </div>
 
