@@ -171,7 +171,6 @@
       border-bottom: 2px dashed rgba(115, 79, 120, 0.2);
     }
 
-    /* Ornamen Bunga Sudut Halus untuk Section */
     .section-styled::before, .section-styled::after {
       content: '';
       position: absolute;
@@ -402,29 +401,12 @@
       color: #444;
       line-height: 1.5;
     }
-
-    /* FLOATING MUSIC BUTTON (Hanya muncul di dalam setelah dibuka) */
-    .music-btn {
-      position: fixed; bottom: 20px; right: calc(50% - 220px);
-      width: 44px; height: 44px; background: #5c3961; color: white;
-      border-radius: 50%; display: flex; align-items: center; justify-content: center;
-      cursor: pointer; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-    }
-    @media (max-width: 480px) {
-      .music-btn { right: 20px; }
-      #cover { left: 0; transform: none; }
-    }
   </style>
 </head>
 <body>
 
   <!-- AUDIO LOKAL (lagu.mp3) -->
   <audio id="bgMusic" loop src="lagu.mp3"></audio>
-
-  <!-- Tombol Musik Melayang di Dalam Undangan -->
-  <div class="music-btn" onclick="toggleMusic()">
-    <i id="musicIcon" class="fas fa-music"></i>
-  </div>
 
   <div class="app-container">
 
@@ -454,7 +436,7 @@
         Tanpa mengurangi rasa hormat, kami mengundang Anda untuk hadir di acara pernikahan kami.
       </p>
 
-      <!-- HANYA 1 TOMBOL MUSIK DI SAMPING TOMBOL BUKA -->
+      <!-- TOMBOL BUKA UNDANGAN & 1 TOMBOL MUSIK -->
       <div class="action-cover-wrapper">
         <button class="btn-open" onclick="bukaUndangan()">
           <i class="far fa-envelope-open"></i> Buka Undangan
@@ -646,22 +628,18 @@
       
       music.play();
       isPlaying = true;
-      document.getElementById("musicIcon").className = "fas fa-music";
       document.getElementById("musicIconCover").className = "fas fa-music";
     }
 
     function toggleMusic() {
-      const musicIcon = document.getElementById("musicIcon");
       const musicIconCover = document.getElementById("musicIconCover");
       
       if (isPlaying) {
         music.pause();
-        musicIcon.className = "fas fa-volume-mute";
-        if(musicIconCover) musicIconCover.className = "fas fa-volume-mute";
+        musicIconCover.className = "fas fa-volume-mute";
       } else {
         music.play();
-        musicIcon.className = "fas fa-music";
-        if(musicIconCover) musicIconCover.className = "fas fa-music";
+        musicIconCover.className = "fas fa-music";
       }
       isPlaying = !isPlaying;
     }
