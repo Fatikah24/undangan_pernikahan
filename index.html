@@ -29,7 +29,7 @@
       overflow: hidden;
     }
 
-    /* 1. COVER DEPAN VINTAGE KOREA FLORAL PATTERN CSS */
+    /* COVER DEPAN VINTAGE KOREA FLORAL PATTERN CSS */
     #cover {
       position: fixed;
       top: 0; left: 50%;
@@ -50,7 +50,6 @@
       overflow: hidden;
     }
 
-    /* Efek Motif Bunga Estetik Korea di Sudut Menggunakan CSS Shapes & Glow */
     .floral-ornament {
       position: absolute;
       width: 140px;
@@ -135,7 +134,7 @@
 
     .btn-open:hover { background-color: #f2e3f5; transform: translateY(-2px); }
 
-    /* 2. ISI UTAMA UNDANGAN */
+    /* ISI UTAMA UNDANGAN */
     #main-content { 
       text-align: center;
       background: rgba(253, 248, 254, 0.96);
@@ -152,7 +151,7 @@
     .mempelai-name { font-family: 'Great Vibes', cursive; font-size: 2.6rem; color: #5c3961; margin: 10px 0 5px; }
     .mempelai-parents { font-size: 0.82rem; color: #666; line-height: 1.5; }
 
-    /* COUNTDOWN TIMER PURPLE FLORAL */
+    /* COUNTDOWN TIMER */
     .countdown-section {
       background: linear-gradient(135deg, #7d5982, #533458);
       color: #ffffff;
@@ -220,7 +219,7 @@
 
     .btn-map:hover { background: #734f78; }
 
-    /* SLIDE WEDDING GIFT */
+    /* WEDDING GIFT */
     .gift-section { background: rgba(253, 248, 254, 0.95); padding: 40px 20px; }
     .gift-card {
       background: #ffffff;
@@ -369,7 +368,7 @@
 </head>
 <body>
 
-  <!-- AUDIO BACKSOUND: DENNY CAKNAN - SINARENGAN -->
+  <!-- AUDIO LOKAL (lagu.mp3) -->
   <audio id="bgMusic" loop src="lagu.mp3"></audio>
 
   <div class="music-btn" onclick="toggleMusic()">
@@ -380,7 +379,6 @@
 
     <!-- COVER SAMPUL DEPAN VINTAGE KOREA FLORAL -->
     <div id="cover">
-      <!-- Ornamen Bunga Ungu Estetik di Sudut (100% Anti Gagal/Pasti Muncul) -->
       <div class="floral-ornament ornament-tl"></div>
       <div class="floral-ornament ornament-tr"></div>
       <div class="floral-ornament ornament-bl"></div>
@@ -413,14 +411,14 @@
     <!-- ISI UTAMA UNDANGAN -->
     <div id="main-content">
 
-      <!-- SLIDE 1: KALIMAT PEMBUKA & PROFIL MEMPELAI -->
+      <!-- SLIDE 1: PROFIL MEMPELAI -->
       <div class="section-padding">
         <h3 class="salam-title">Assalamu’alaikum Wr. Wb.</h3>
         <p class="salam-text">
           Maha suci Allah SWT, yang telah menciptakan makhluk-Nya berpasang-pasangan. Ya Allah, rahmati dan ridhoilah pernikahan kami :
         </p>
 
-        <!-- PROFIL ISTRI (FATIKAH) -->
+        <!-- PROFIL FATIKAH -->
         <div class="mempelai-card">
           <div class="arch-frame" style="margin: 0 auto 15px; border-color: #734f78;">
             <img src="https://picsum.photos/300/400?bride" alt="Fatikah">
@@ -431,7 +429,7 @@
 
         <div style="font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #734f78; margin: 20px 0;">&</div>
 
-        <!-- PROFIL SUAMI (CHANYEOL) -->
+        <!-- PROFIL CHANYEOL -->
         <div class="mempelai-card">
           <div class="arch-frame" style="margin: 0 auto 15px; border-color: #734f78;">
             <img src="https://picsum.photos/300/400?groom" alt="Chanyeol">
@@ -466,25 +464,22 @@
         <div class="quote-source">(QS. Ar-Rum : 21)</div>
       </div>
 
-      <!-- SLIDE 2: DETAIL ACARA (AKAD & RESEPSI) -->
+      <!-- SLIDE 2: DETAIL ACARA -->
       <div class="section-padding">
         <h3 style="color: #5c3961; margin-bottom: 25px;">Rangkaian Acara</h3>
 
-        <!-- AKAD NIKAH -->
         <div class="event-card">
           <div class="event-title">AKAD NIKAH</div>
           <div class="event-info"><i class="far fa-calendar-alt"></i> Sabtu, 13 Juni 2026</div>
           <div class="event-info"><i class="far fa-clock"></i> 08.00 WIB - Selesai</div>
         </div>
 
-        <!-- RESEPSI -->
         <div class="event-card">
           <div class="event-title">RESEPSI</div>
           <div class="event-info"><i class="far fa-calendar-alt"></i> Sabtu, 13 Juni 2026</div>
           <div class="event-info"><i class="far fa-clock"></i> 11.00 WIB - Selesai</div>
         </div>
 
-        <!-- KOTAK LOKASI ACARA TERINTEGRASI GOOGLE MAPS LINK -->
         <div class="location-card">
           <div class="location-title">LOKASI ACARA</div>
           <div class="location-address">
@@ -498,12 +493,11 @@
         </div>
       </div>
 
-      <!-- SLIDE 3: WEDDING GIFT (NO REK) -->
+      <!-- WEDDING GIFT -->
       <div class="gift-section">
         <h3 style="color: #5c3961;">Wedding Gift</h3>
         <p style="font-size: 0.85rem; color: #666; margin-top: 5px;">Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Dan jika Anda ingin memberikan hadiah, dapat melalui rekening di bawah ini:</p>
 
-        <!-- REK ISTRI -->
         <div class="gift-card">
           <p style="font-size: 0.85rem; color: #777;">Bank BCA (Istri)</p>
           <div class="rekening-no" id="rekIstri">1234567890</div>
@@ -511,7 +505,6 @@
           <button class="btn-copy" onclick="copyText('rekIstri')">Salin No. Rekening</button>
         </div>
 
-        <!-- REK SUAMI -->
         <div class="gift-card">
           <p style="font-size: 0.85rem; color: #777;">Bank Mandiri (Suami)</p>
           <div class="rekening-no" id="rekSuami">0987654321</div>
@@ -531,7 +524,7 @@
         </div>
       </div>
 
-      <!-- SLIDE AKHIR: FORM UCAPAN & DOA -->
+      <!-- FORM UCAPAN & RSVP -->
       <div style="padding: 10px 20px 50px;">
         <div class="ucapan-banner">
           Berikan Ucapan Spesial Anda Disini :
@@ -573,7 +566,7 @@
   </div>
 
   <script>
-    // 1. DYNAMIC NAMA TAMU DARI URL (?to=NamaTamu)
+    // 1. DYNAMIC NAMA TAMU DARI URL
     const urlParams = new URLSearchParams(window.location.search);
     const nama = urlParams.get('to');
     if (nama) {
@@ -581,7 +574,7 @@
       document.getElementById('inputNama').value = decodeURIComponent(nama);
     }
 
-    // 2. FUNGSI BUKA UNDANGAN & MUSIK
+    // 2. FUNGSI BUKA UNDANGAN & MUSIK (Mulai dari 01:05 = 65 Detik)
     const music = document.getElementById("bgMusic");
     let isPlaying = false;
 
@@ -589,6 +582,10 @@
       const cover = document.getElementById("cover");
       cover.style.transform = "translateY(-100%)";
       setTimeout(() => { cover.style.display = "none"; }, 800);
+      
+      // Mengatur lagu mulai dari menit ke 01:05 (65 detik)
+      music.currentTime = 65; 
+      
       music.play();
       isPlaying = true;
     }
@@ -618,14 +615,14 @@
       document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
     }, 1000);
 
-    // 4. FUNGSI SALIN NO REKENING
+    // 4. SALIN REKENING
     function copyText(elementId) {
       const text = document.getElementById(elementId).innerText;
       navigator.clipboard.writeText(text);
       alert("Nomor rekening berhasil disalin: " + text);
     }
 
-    // 5. FITUR TAMBAH UCAPAN DENGAN HITUNGAN COMMENTS OTOMATIS
+    // 5. FITUR UCAPAN & KOMENTAR
     let countComments = 1;
     document.getElementById('formUcapan').addEventListener('submit', function(e) {
       e.preventDefault();
